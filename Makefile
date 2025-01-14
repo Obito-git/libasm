@@ -6,17 +6,19 @@ ASM = nasm
 CFLAGS = -Wall -Werror -Wextra -g3 -Iinc -Itest
 ASMFLAGS = -f elf64
 
-SRCS_DIR = src/
-OBJ_DIR = obj/
+SRCS_DIR = src
+OBJ_DIR = obj
 TEST_DIR = test/
 
-SRCS = $(wildcard $(SRCS_DIR)*.s)
-OBJS = $(patsubst $(SRCS_DIR)%.s, $(OBJ_DIR)%.o, $(SRCS))
+SRCS = $(wildcard $(SRCS_DIR)/*/*.s)
+OBJS = $(patsubst $(SRCS_DIR)/%.s, $(OBJ_DIR)/%.o, $(SRCS))
 TEST_SRCS = $(wildcard $(TEST_DIR)*.c)
+TEST_HEADERS = $(wildcard $(TEST_DIR)*.h) inc/libasm.h
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o: $(SRCS_DIR)%.s Makefile | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRCS_DIR)/%.s Makefile | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(ASM) $(ASMFLAGS) -o $@ $<
 
 $(NAME): $(OBJS)
@@ -35,10 +37,10 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
+test: $(NAME) $(TEST_HEADERS)
 	$(CC) $(CFLAGS) -g3 -o test_bin $(TEST_SRCS) $(NAME)
 
 runtest: test
 	./test_bin
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re test runtest

@@ -6,10 +6,12 @@
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
+#include <ctype.h>
 
 void assert_print_equal_int_msg(const char *msg, int expected, int actual);
 void assert_print_equal_size_t_msg(const char *msg, size_t expected, size_t actual);
 void assert_print_equal_str_msg(const char *msg, const char *expected, const char *actual);
+
 
 #define ASSERT_PRINT_EQUAL(MSG, expected, actual) \
     _Generic((expected) + 0,                      \
