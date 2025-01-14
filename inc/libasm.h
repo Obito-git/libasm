@@ -11,6 +11,6 @@ extern ssize_t ft_read(int fd, void *buf, size_t count);
 extern char *ft_strdup(const char *src);
 extern int ft_tolower(int c);
 extern int ft_toupper(int c);
-extern int ft_isspace(char c);
+extern int ft_isspace(int c);
 
 #endif

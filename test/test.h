@@ -23,5 +23,6 @@ void ft_strdup_test();
 // Char test
 void ft_tolower_test();
 void ft_toupper_test();
+void ft_isspace_test();
 
 #endif

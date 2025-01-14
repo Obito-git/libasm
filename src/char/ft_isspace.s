@@ -2,7 +2,7 @@ global ft_isspace
 
 section .text
 ft_isspace:
-    mov al, 0
+    xor eax, eax
 
     cmp dil, 0x0C       ; '\f'
     je .return_true
@@ -25,5 +25,5 @@ ft_isspace:
     ret
 
 .return_true:
-    mov al, 1
+    mov eax, 1
     ret
