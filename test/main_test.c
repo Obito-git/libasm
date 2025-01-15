@@ -16,6 +16,11 @@ int main()
     ft_tolower_test();
     ft_toupper_test();
     ft_isspace_test();
+    ft_isprint_test();
+    ft_isdigit_test();
+    ft_isascii_test();
+    ft_isalpha_test();
+    ft_isalnum_test();
 
     return 0;
 }

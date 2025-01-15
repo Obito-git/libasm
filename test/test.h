@@ -24,5 +24,10 @@ void ft_strdup_test();
 void ft_tolower_test();
 void ft_toupper_test();
 void ft_isspace_test();
+void ft_isprint_test();
+void ft_isdigit_test();
+void ft_isascii_test();
+void ft_isalpha_test();
+void ft_isalnum_test();
 
 #endif

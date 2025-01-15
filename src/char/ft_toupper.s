@@ -3,9 +3,9 @@ global ft_toupper
 section .text
 ft_toupper:
     mov eax, edi
-    cmp eax, 0x61
+    cmp eax, 'a'
     jl .return_same
-    cmp eax, 0x7A
+    cmp eax, 'z'
     jg .return_same
     xor eax, 0x20
     ret
