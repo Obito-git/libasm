@@ -166,3 +166,121 @@ void ft_memcmp_test()
 
     printf("ft_memcmp completed successfully.\n\n");
 }
+
+void ft_memcpy_test()
+{
+    printf("ft_memcpy started:\n");
+
+    {
+        char src[] = "abcdef";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 6);
+        memcpy(expected, src, 6);
+
+        ASSERT_PRINT_EQUAL("Test 1: Copy identical strings",
+                           memcmp(dest, expected, 6), 0);
+    }
+
+    {
+        char src[] = "123456";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 6);
+        memcpy(expected, src, 6);
+
+        ASSERT_PRINT_EQUAL("Test 2: Copy numbers",
+                           memcmp(dest, expected, 6), 0);
+    }
+
+    {
+        char src[] = "abcdef";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 3);
+        memcpy(expected, src, 3);
+
+        ASSERT_PRINT_EQUAL("Test 3: Partial copy",
+                           memcmp(dest, expected, 3), 0);
+    }
+
+    {
+        char src[] = "abcdef";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 0);
+        memcpy(expected, src, 0);
+
+        ASSERT_PRINT_EQUAL("Test 4: Copy zero bytes",
+                           memcmp(dest, expected, 0), 0);
+    }
+
+    {
+        char src[] = "abc\0def";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 7);
+        memcpy(expected, src, 7);
+
+        ASSERT_PRINT_EQUAL("Test 5: Copy with null bytes",
+                           memcmp(dest, expected, 7), 0);
+    }
+
+    {
+        char src[] = {0, 1, 2, 3, 4, 5};
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 6);
+        memcpy(expected, src, 6);
+
+        ASSERT_PRINT_EQUAL("Test 6: Copy binary data",
+                           memcmp(dest, expected, 6), 0);
+    }
+
+    {
+        char src[10] = {0};
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 10);
+        memcpy(expected, src, 10);
+
+        ASSERT_PRINT_EQUAL("Test 7: Copy all zeros",
+                           memcmp(dest, expected, 10), 0);
+    }
+
+    {
+        char src[] = "abcdef";
+        char dest[10] = "xxxxxxx";
+        char expected[10] = "xxxxxxx";
+
+        ft_memcpy(dest, src, 4);
+        memcpy(expected, src, 4);
+
+        ASSERT_PRINT_EQUAL("Test 8: Overwrite existing data",
+                           memcmp(dest, expected, 4), 0);
+    }
+
+    {
+        char src[] = "abcdef";
+        char dest[10] = {0};
+        char expected[10] = {0};
+
+        ft_memcpy(dest, src, 6);
+        ft_memcpy(dest + 2, dest, 4); // Overlapping regions
+
+        memcpy(expected, src, 6);
+        memcpy(expected + 2, expected, 4);
+
+        ASSERT_PRINT_EQUAL("Test 9: Overlapping copy",
+                           memcmp(dest, expected, 6), 0);
+    }
+
+    printf("ft_memcpy completed successfully.\n\n");
+}

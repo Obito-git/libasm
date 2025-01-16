@@ -34,5 +34,6 @@ void ft_isalnum_test();
 void ft_bzero_test();
 void ft_calloc_test();
 void ft_memcmp_test();
+void ft_memcpy_test();
 
 #endif

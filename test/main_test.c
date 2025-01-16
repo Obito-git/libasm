@@ -26,6 +26,7 @@ int main()
     ft_bzero_test();
     ft_calloc_test();
     ft_memcmp_test();
+    ft_memcpy_test();
 
     return 0;
 }
