@@ -10,17 +10,17 @@
 #include <errno.h>
 #include <stdlib.h>
 
-// Syscall test
+// syscall test
 void ft_write_test();
 void ft_read_test();
 
-// String test
+// string test
 void ft_strlen_test();
 void ft_strcpy_test();
 void ft_strcmp_test();
 void ft_strdup_test();
 
-// Char test
+// char test
 void ft_tolower_test();
 void ft_toupper_test();
 void ft_isspace_test();
@@ -29,5 +29,10 @@ void ft_isdigit_test();
 void ft_isascii_test();
 void ft_isalpha_test();
 void ft_isalnum_test();
+
+// mem test
+void ft_bzero_test();
+void ft_calloc_test();
+void ft_memcmp_test();
 
 #endif
